@@ -1,0 +1,26 @@
+/* .activator {
+  max-width: 800px;
+  height: auto;
+} */
+.day-planner{
+  text-align: center;
+}
+.time-block {
+  text-align: center;
+  border-radius: 100px;
+}
+
+.hour {
+  font: 
+}
+
+.todo {
+  background: transparent;
+  border: solid;
+  resize: none;
+  color: #aaa2a2;
+  border-left: 1px solid white;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
