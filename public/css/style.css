@@ -1,29 +1,39 @@
-/* .activator {
-  max-width: 800px;
-  height: auto;
-} */
+.parallax {
+  /* The image used */
+  /* background-image: url("https://images.unsplash.com/photo-1532381523761-96107c2f2e6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"); */
+  background-image: url("https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80");
+  /* Set a specific height */
+  min-height: 500px;
 
-
-.day-planner{
-  text-align: center;
- 
-}
-.time-block {
-  text-align: center;
-  border-radius: 100px;
-}
-
-.hour {
-  font: 
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position:bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.todo {
-  background: transparent;
-  border: solid;
-  resize: none;
-  color: #aaa2a2;
-  border-left: 1px solid white;
-  padding: 10px;
+
+
+.background {
+  background-image: url("/public/assets/christmas3.jpeg");
+}
+
+nav {
+  background-color: #EF5350;
+}
+
+.background {
+  background-color: #EF5350;
+}
+
+li {
   margin: 10px;
-  text-align: center;
+  border-radius: 5px;
 }
+
+
+
+
+
+
+
