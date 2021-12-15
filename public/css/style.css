@@ -26,6 +26,11 @@ nav {
   background-color: #EF5350;
 }
 
+.card {
+  padding: 20px;
+  margin: 20px; 
+}
+
 li {
   margin: 10px;
   border-radius: 5px;
