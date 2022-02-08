@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS dayplanner;
+
+CREATE DATABASE dayplanner;
