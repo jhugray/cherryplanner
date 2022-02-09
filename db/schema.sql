@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS dayplanner;
+DROP DATABASE IF EXISTS cherry_planner;
 
-CREATE DATABASE dayplanner;
+CREATE DATABASE cherry_planner;

@@ -23,7 +23,7 @@ CalendarItem.init(
       defaultValue: false,
     },
     date: {
-      //no timestamp
+      //dateonly = no timestamp
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
