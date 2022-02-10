@@ -1,8 +1,16 @@
  
- 
-<header>
-   <p id="currentDay" class="lead"></p>
-</header>
+<container>
+  <header class="row">
+    <button id="backward" class="col-sm-1">
+    <i class="bi bi-arrow-left-circle-fill"></i>  
+    </button>
+    <p id="currentDay" class="col-4"></p>
+    <button id="forward" class="col-1">
+      <i class="bi bi-arrow-right-circle-fill"></i>
+    </button>
+  </header>
+</container>
+
 
  <div class="parallax"></div>
   
@@ -214,8 +222,10 @@
       
 
       <div class="parallax"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+{{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> --}}
 <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
 
 <script src="/js/calendar.js"></script>
 

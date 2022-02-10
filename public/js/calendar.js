@@ -1,39 +1,32 @@
-// const dayjs = require('dayjs');
 
-var now = dayjs()
-console.log(now)
+let now = dayjs();
+console.log(now);
 
-var dateContainer = document.getElementById("currentDay")
-dateContainer.innerText = now;
+var dateContainer = document.getElementById("currentDay");
+setDate(now);
 
-// async function calendarItemHandler(event) {
-//   event.preventDefault();
+function setDate(day) {
+  dateContainer.innerText = day.format('dddd, MMMM D, YYYY');
+  dateContainer.setAttribute("data-time", day.unix());
+};
 
-//   const todo = document.querySelector('#calItem').value.trim();
-//   const email = document.querySelector('#floatingEmail').value.trim();
-//   const password = document.querySelector('#floatingPassword').value.trim();
+document.getElementById("forward").addEventListener("click", dateForward);
 
-//   if (todo && email && password) {
-//     const response = await fetch('/api/users', {
-//       method: 'post',
-//       body: JSON.stringify({
-//         username,
-//         email,
-//         password
-//       }),
-//       headers: { 'Content-Type': 'application/json' }
-//     });
+function dateForward() {
+  var dateContainer = document.getElementById("currentDay");
+  date = dayjs.unix(dateContainer.getAttribute("data-time"));
+  newDate = date.add(1, 'day');
+  setDate(newDate);
+};
 
-//     if (response.ok) {
-//       document.location.replace('/');
-//     } else {
-//       alert(response.statusText);
-//     }
-//   }
-// };
+document.getElementById("backward").addEventListener("click", dateBackward);
 
-// document.querySelector('.form-signup').addEventListener('submit', signupFormHandler);
-
+function dateBackward() {
+  var dateContainer = document.getElementById("currentDay");
+  date = dayjs.unix(dateContainer.getAttribute("data-time"));
+  newDate = date.add(1, 'day');
+  setDate(newDate);
+}
 
 // const now = moment();
 // console.log(now);
