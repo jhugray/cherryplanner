@@ -19,17 +19,31 @@
 
 
 
-<div class="input-group mb-3">
-  <span class="input-group-text">0500</span>
+{{!-- <form class="input-group mb-3">
+  <span id="startHour" class="input-group-text">0500</span>
   <textarea id="todo" placeholder="Things to do" type="text" class="form-control" aria-label="Amount (to the nearest dollar)"></textarea>
-  <button class="input-group-text">Save</button>
-</div>
+  <button class="input-group-text" type="submit">Save</button>
+</form>
+ --}}
 
-<div class="input-group mb-3">
+
+
+    {{#each hours}}
+      <form id="{{this}}" class="input-group mb-3">
+        <span id="startHour" class="input-group-text">{{this}}</span>
+        <textarea id="todo-{{this}}" placeholder="Things to do" type="text" class="form-control"></textarea>
+        <button class="input-group-text" type="submit">Save</button>
+      </form>
+    {{/each}}
+
+
+
+
+{{!-- <div class="input-group mb-3">
   <span class="input-group-text">0600</span>
   <textarea id="todo" placeholder="Things to do" type="text" class="form-control" aria-label="Amount (to the nearest dollar)"></textarea>
   <button class="input-group-text">Save</button>
-</div>
+</div> --}}
 
 
 

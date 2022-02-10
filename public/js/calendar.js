@@ -1,7 +1,7 @@
 //set the current date using day.js and set inner html to the date
 let now = dayjs();
 console.log(now);
-var dateContainer = document.getElementById("currentDay");
+const dateContainer = document.getElementById("currentDay");
 setDate(now);
 
 //update date
@@ -15,40 +15,40 @@ document.getElementById("forward").addEventListener("click", dateForward);
 document.getElementById("backward").addEventListener("click", dateBackward);
 
 function dateForward() {
-  var dateContainer = document.getElementById("currentDay");
+  const dateContainer = document.getElementById("currentDay");
   date = dayjs.unix(dateContainer.getAttribute("data-time"));
   newDate = date.add(1, 'day');
   setDate(newDate);
 };
 
 function dateBackward() {
-  var dateContainer = document.getElementById("currentDay");
+  const dateContainer = document.getElementById("currentDay");
   date = dayjs.unix(dateContainer.getAttribute("data-time"));
   newDate = date.add(1, 'day');
   setDate(newDate);
 }
 
+
 async function saveTodoHandler(event) {
   event.preventDefault();
+  const startHour = document.querySelector('#startHour').innerHTML;
+  const body = document.querySelector('#todo').value.trim();
+  const dateContainer = document.getElementById("currentDay");
+  date = dayjs.unix(dateContainer.getAttribute("data-time")).format('YYYY-MM-DD');
+  console.log(body);
+  console.log(date);
+  console.log(startHour);
 
-  const todo = document.querySelector('#todo').value.trim();
-  const date = //add rest....
-
-  if (todo && //add others) {
+  if (body && date && startHour) {
     const response = await fetch('/api/calendar', {
       method: 'post',
       body: JSON.stringify({
-        todo, 
-        date etc ect ///add more
+        body, 
+        date,
+        startHour
       }),
       headers: { 'Content-Type': 'application/json' }
     });
-
-    if (response.ok) {
-      document.location.replace('/');
-    } else {
-      alert(response.statusText);
-    }
   }
 };
 
