@@ -1,15 +1,5 @@
  
-<container>
-  <header class="row">
-    <button id="backward" class="col-sm-1">
-    <i class="bi bi-arrow-left-circle-fill"></i>  
-    </button>
-    <p id="currentDay" class="col-4"></p>
-    <button id="forward" class="col-1">
-      <i class="bi bi-arrow-right-circle-fill"></i>
-    </button>
-  </header>
-</container>
+
 
 
  <div class="parallax"></div>
@@ -17,28 +7,31 @@
       <div class="background">
         <div class="container">
 
+  <header class="row justify-content-center">
+    <button id="backward" class="dayButton" style="width: 4rem;">
+    <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem;"></i>  
+    </button>
+    <p id="currentDay" class="col-4 p-3 m-1"></p>
+    <button id="forward" class="dayButton" style="width: 4rem;">
+      <i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem;"></i>
+    </button>
+  </header>
 
+ <div class="parallax"></div>
 
-{{!-- <form class="input-group mb-3">
-  <span id="startHour" class="input-group-text">0500</span>
-  <textarea id="todo" placeholder="Things to do" type="text" class="form-control" aria-label="Amount (to the nearest dollar)"></textarea>
-  <button class="input-group-text" type="submit">Save</button>
-</form>
- --}}
-
-
+ 
   <container id="calItems">
     {{#each hours}}
       <form id="{{this}}" class="input-group mb-3">
-        <span id="startHour-{{this}}" class="input-group-text">{{this}}</span>
+        <span id="startHour-{{this}}" class="input-group-text" style="background-color: #DAE4CA;">{{this}}</span>
         <textarea id="todo-{{this}}" placeholder="Things to do" type="text" class="form-control"></textarea>
-        <button class="input-group-text" type="submit">Save</button>
+        <button class="input-group-text" style="background-color: #DAE4CA;" type="submit">Save</button>
       </form>
     {{/each}}
-
-
   </container>
   
+   <div class="parallax"></div>
+
 
 
 
@@ -48,197 +41,8 @@
   <button class="input-group-text">Save</button>
 </div> --}}
 
-
-
-          <ul class="list-group col-sm-10 to-do" id="calItem">
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                5am
-              </div>
-              <input type="text" id="05" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-                <div class="col-sm-1">
-                  6am
-                </div>
-                <input type="text" id="06" placeholder="Things to do" class="col-sm-8">
-                <button class="">
-                  save
-                </button>
-            </li>
-  
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                7am
-              </div>
-              <input type="text" id="07" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-  
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                8am
-              </div>
-              <input type="text" id="08" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                9am
-              </div>
-              <input type="text" id="09" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                10am
-              </div>
-              <input type="text" id="10" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                11am
-              </div>
-              <input type="text" id="11" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                12pm
-              </div>
-              <input type="text" id="12" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                1pm
-              </div>
-              <input type="text" id="13" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                2pm
-              </div>
-              <input type="text" id="14" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                3pm
-              </div>
-              <input type="text" id="15" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                4pm
-              </div>
-              <input type="text" id="16" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                5pm
-              </div>
-              <input type="text" id="17" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                6pm
-              </div>
-              <input type="text" id="18" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                7pm
-              </div>
-              <input type="text" id="19" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                8pm
-              </div>
-              <input type="text" id="20" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                9pm
-              </div>
-              <input type="text" id="21" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-
-            <li class="list-group-item">
-              <div class="col-sm-1">
-                10pm
-              </div>
-              <input type="text" id="22" placeholder="Things to do" class="col-sm-8">
-              <button class="">
-                save
-              </button>
-            </li>
-          
-          </ul>   
-
-        </div>
-      </div>
       
 
-      <div class="parallax"></div>
 {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> --}}
 <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">

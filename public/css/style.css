@@ -15,8 +15,6 @@
   background-size: cover;
 }
 
-
-
 .background {
  background-image: url("https://images.unsplash.com/photo-1465120846441-761b22f43328?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
  background-attachment: fixed;
@@ -87,9 +85,24 @@ body {
   border-top-right-radius: 0;
 }
 
+#currentDay {
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+}
 
 
+.dayButton {
+  background-color:#A30000;
+  color: white;
+  border-radius: 10px;
+}
 
+.footer {
+  background-color: #A30000;
+  color: white;
+}
 
-
-
+.footer a {
+  color: white;
+}
