@@ -1,16 +1,18 @@
-
+//set the current date using day.js and set inner html to the date
 let now = dayjs();
 console.log(now);
-
 var dateContainer = document.getElementById("currentDay");
 setDate(now);
 
+//update date
 function setDate(day) {
   dateContainer.innerText = day.format('dddd, MMMM D, YYYY');
   dateContainer.setAttribute("data-time", day.unix());
 };
 
+//event listeners for forward and backward date buttons 
 document.getElementById("forward").addEventListener("click", dateForward);
+document.getElementById("backward").addEventListener("click", dateBackward);
 
 function dateForward() {
   var dateContainer = document.getElementById("currentDay");
@@ -19,8 +21,6 @@ function dateForward() {
   setDate(newDate);
 };
 
-document.getElementById("backward").addEventListener("click", dateBackward);
-
 function dateBackward() {
   var dateContainer = document.getElementById("currentDay");
   date = dayjs.unix(dateContainer.getAttribute("data-time"));
@@ -28,50 +28,28 @@ function dateBackward() {
   setDate(newDate);
 }
 
-// const now = moment();
-// console.log(now);
+async function saveTodoHandler(event) {
+  event.preventDefault();
 
-// //function to check the time, and update the css as needed based on the time
-// const confirmTime = function () {
+  const todo = document.querySelector('#todo').value.trim();
+  const date = //add rest....
 
-//   //gets the current date and appends it to the html
-//   var currentDate = moment().format('LL');
-//   console.log(currentDate);
-//   var dateContainer = document.getElementById("currentDay")
-//   dateContainer.innerText = currentDate;
+  if (todo && //add others) {
+    const response = await fetch('/api/calendar', {
+      method: 'post',
+      body: JSON.stringify({
+        todo, 
+        date etc ect ///add more
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    });
 
-//   //defines the current time using moment.js, HH= 09, 10...17 format
-//   var currentTime = moment().format('HH');
-//   console.log(currentTime);
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
 
-//   //selects the element with the class of textarea (the rows)
-//   var calendarEl = $(".textarea");
-//   console.log(calendarEl)
-
-//   //for loop to go through each calendarEL row until the end, comparing the currentTime to the time in the calendar/schedule
-//   for (var i = 0 ; i < calendarEl.length ; i++) {
-
-//     //each calendarEL has an ID with the time for that calendar position, this identifies them
-//       var timeID = calendarEl[i].id;
-//       console.log(timeID)
-
-//       //selects the element by ID that we will later update based on the time
-//       var calID = document.getElementById(calendarEl[i].id)
-//       console.log(calID)
-
-//       //as the function will be repeated to update, this is needed to remove outdated past/present/future classes
-//       $(calendarEl[i].id).removeClass(".present .past .future");
-
-//      // loops through updating the css class based on the time
-//       if (timeID < currentTime) {
-//           $(calID).addClass("past");
-//       } else if (timeID > currentTime) {
-//           $(calID).addClass("future");
-//       } else {
-//           $(calID).addClass("present");
-//       }
-//   }
-// }
-
-// // reruns the confirmTime function to update the calendar without the need for the user to refresh the page
-// setInterval(confirmTime(), 50000);
+document.querySelector('.input-group').addEventListener('submit', saveTodoHandler);
