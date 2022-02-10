@@ -27,15 +27,18 @@
  --}}
 
 
-
+  <container id="calItems">
     {{#each hours}}
       <form id="{{this}}" class="input-group mb-3">
-        <span id="startHour" class="input-group-text">{{this}}</span>
+        <span id="startHour-{{this}}" class="input-group-text">{{this}}</span>
         <textarea id="todo-{{this}}" placeholder="Things to do" type="text" class="form-control"></textarea>
         <button class="input-group-text" type="submit">Save</button>
       </form>
     {{/each}}
 
+
+  </container>
+  
 
 
 

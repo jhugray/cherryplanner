@@ -31,10 +31,10 @@ function dateBackward() {
 
 async function saveTodoHandler(event) {
   event.preventDefault();
-  const startHour = document.querySelector('#startHour').innerHTML;
-  const body = document.querySelector('#todo').value.trim();
+  const startHour = event.target.id;
+  const body = document.querySelector('#todo-' + event.target.id).value.trim();
   const dateContainer = document.getElementById("currentDay");
-  date = dayjs.unix(dateContainer.getAttribute("data-time")).format('YYYY-MM-DD');
+  const date = dayjs.unix(dateContainer.getAttribute("data-time")).format('YYYY-MM-DD');
   console.log(body);
   console.log(date);
   console.log(startHour);
@@ -52,4 +52,11 @@ async function saveTodoHandler(event) {
   }
 };
 
-document.querySelector('.input-group').addEventListener('submit', saveTodoHandler);
+// document.querySelector('.input-group').addEventListener('submit', saveTodoHandler);
+var calItems = document.querySelector('#calItems').getElementsByTagName('button');
+
+// For each <li> inside #links
+for (var i = 0; i < calItems.length; i++) {
+  var calItem= calItems[i];
+  calItem.onclick = saveTodoHandler;
+}
