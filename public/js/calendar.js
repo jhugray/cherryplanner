@@ -51,12 +51,16 @@ async function saveTodoHandler(event) {
     });
   }
 };
-
+//attempt 1 - only listened to first click
 // document.querySelector('.input-group').addEventListener('submit', saveTodoHandler);
-var calItems = document.querySelector('#calItems').getElementsByTagName('button');
 
-// For each <li> inside #links
-for (var i = 0; i < calItems.length; i++) {
-  var calItem= calItems[i];
-  calItem.onclick = saveTodoHandler;
-}
+//attempt 2 - had to wrap HBS function in a container w/an ID of calItems, but then event.target did not work
+// var calItems = document.querySelector('#calItems').getElementsByTagName('button');
+
+// for (var i = 0; i < calItems.length; i++) {
+//   var calItem= calItems[i];
+//   calItem.onclick = saveTodoHandler;
+// }
+
+//yay it works 
+document.querySelectorAll('.input-group').forEach(function(el) {el.addEventListener('submit', saveTodoHandler)});

@@ -20,15 +20,13 @@
  <div class="parallax"></div>
 
  
-  <container id="calItems">
     {{#each hours}}
       <form id="{{this}}" class="input-group mb-3">
         <span id="startHour-{{this}}" class="input-group-text" style="background-color: #DAE4CA;">{{this}}</span>
         <textarea id="todo-{{this}}" placeholder="Things to do" type="text" class="form-control"></textarea>
-        <button class="input-group-text" style="background-color: #DAE4CA;" type="submit">Save</button>
+        <button id="button-{{this}}" class="input-group-text" style="background-color: #DAE4CA;" type="submit">Save</button>
       </form>
     {{/each}}
-  </container>
   
    <div class="parallax"></div>
 
