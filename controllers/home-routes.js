@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
         calendarItems: calendarItems,
         hours:["0500", "0600", "0700", "0800", "0900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100"],
         // loggedIn: req.session.loggedIn,
-        // activeUser: req.session.username
+        activeUser: req.session.username,
         loggedIn: req.session.loggedIn
       });
     })
@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.reload('/');
+    res.redirect('/');
     return;
   }
   res.render('login');
