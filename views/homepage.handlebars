@@ -18,20 +18,43 @@
   </header>
 
  <div class="parallax"></div>
+   
+  
+<div>
+  <p style="background-color: white;">
+    test test test
+  {{this.username}}
+  {{#each calendarItems}}
+  {{body}}
+  {{user.username}}
+  {{/each}}
+  </p>
+</div>
 
- 
+
+
     {{#each hours}}
       <form id="{{this}}" class="input-group mb-3">
         <span id="startHour-{{this}}" class="input-group-text" style="background-color: #DAE4CA;">{{this}}</span>
-        <textarea id="todo-{{this}}" placeholder="Things to do" type="text" class="form-control"></textarea>
+        <textarea id="todo-{{this}}" placeholder="Things to do" type="text" class="form-control">{{calendarItems.body}} </textarea>
         <button id="button-{{this}}" class="input-group-text" style="background-color: #DAE4CA;" type="submit">Save</button>
       </form>
     {{/each}}
-  
    <div class="parallax"></div>
 
 
 
+    {{!-- {{#each hours}}
+      <form id="{{this}}" class="input-group mb-3">
+        <span id="startHour-{{this}}" class="input-group-text" style="background-color: #DAE4CA;">{{this}}</span>
+        <textarea id="todo-{{this}}" placeholder="Things to do" type="text" class="form-control">{{calendarItems.body}} </textarea>
+        <button id="button-{{this}}" class="input-group-text" style="background-color: #DAE4CA;" type="submit">Save</button>
+      </form>
+    {{/each}}
+   <div class="parallax"></div>
+
+
+ --}}
 
 {{!-- <div class="input-group mb-3">
   <span class="input-group-text">0600</span>

@@ -28,7 +28,7 @@ function dateBackward() {
   setDate(newDate);
 }
 
-
+//save calendar items
 async function saveTodoHandler(event) {
   event.preventDefault();
   const startHour = event.target.id;
@@ -51,6 +51,7 @@ async function saveTodoHandler(event) {
     });
   }
 };
+
 //attempt 1 - only listened to first click
 // document.querySelector('.input-group').addEventListener('submit', saveTodoHandler);
 
@@ -62,5 +63,6 @@ async function saveTodoHandler(event) {
 //   calItem.onclick = saveTodoHandler;
 // }
 
-//yay it works 
+//attempt 3 - yay it works 
 document.querySelectorAll('.input-group').forEach(function(el) {el.addEventListener('submit', saveTodoHandler)});
+

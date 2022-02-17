@@ -5,6 +5,7 @@ const sequelize = require('./config/connection');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const Handlebars = require('handlebars');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,6 +25,17 @@ app.use(session(sess));
 const hbs = exphbs.create();
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+
+
+Handlebars.registerHelper('lookupOrDefault', function (object, propertyName, defaultValue, options) {
+  var result = options.lookupProperty(object, propertyName)
+  if (result != null) {
+      return result
+  }
+  return defaultValue
+})
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
