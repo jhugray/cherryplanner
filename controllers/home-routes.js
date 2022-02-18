@@ -2,10 +2,10 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, CalendarItem, Accomplishment, Goal } = require('../models');
 
-
-
 router.get('/', (req, res) => {
   CalendarItem.findAll({
+        //include where clause for current user and per date
+
     attributes: [
       'id', 
       'body', 
@@ -23,10 +23,31 @@ router.get('/', (req, res) => {
     .then(dbCalendarData => {
       const calendarItems = dbCalendarData.map(calendarItems => calendarItems.get({ plain: true }));
 
+      //homeData object 
+      //...  Start with a for loop going through the hours, setting up an array, and instead of being a string of hours, it will be objects with keys from the calender model (for fallback when no db data) (body (empty), startHour (from index of forloop), completionStatus(false))
+      const homeData = [];
+      const firstHour = 5;
+      const lastHour = 21;
+      for (let i = firstHour; i <= lastHour; i++ ) {
+        homeData.push({
+          startHour: i,
+          body: '',
+          completedStatus: false
+        })
+      }
+      
+      // forEach on calendarItems ... replace homedata[starthour-firsthour]
+
+      calendarItems.forEach(calendarItem => {
+        homeData[calendarItem.startHour-firstHour] = calendarItem;
+      })
+
+
       res.render('homepage', {
-        calendarItems: calendarItems,
-        hours:["0500", "0600", "0700", "0800", "0900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100"],
+        // calendarItems: calendarItems,
+        // hours:["0500", "0600", "0700", "0800", "0900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100"],
         // loggedIn: req.session.loggedIn,
+        homeData,
         activeUser: req.session.username,
         loggedIn: req.session.loggedIn
       });

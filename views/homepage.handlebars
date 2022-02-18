@@ -24,34 +24,35 @@
   <p style="background-color: white;">
     test test test
   {{this.username}}
-  {{#each homeData.calendarItems}}
+  {{#each calendarItems}}
   {{body}}
   {{user.username}}
+  {{startHour}}
   {{/each}}
   </p>
 </div>
 
 
-{{!-- 
+
     {{#each homeData}}
-      <form id="{{homeData.hours}}" class="input-group mb-3">
-        <span id="startHour-" class="input-group-text" style="background-color: #DAE4CA;">{{this.hours}}</span>
-        <textarea id="todo-{{this.hours}}" placeholder="Things to do" type="text" class="form-control">{{homeData.calendarItems.body}} </textarea>
-        <button id="button-{{this.hours}}" class="input-group-text" style="background-color: #DAE4CA;" type="submit">Save</button>
-      </form>
-    {{/each}}
-   <div class="parallax"></div> --}}
-
-
-
-    {{#each hours}}
-      <form id="{{this}}" class="input-group mb-3">
-        <span id="startHour-{{this}}" class="input-group-text" style="background-color: #DAE4CA;">{{this}}</span>
-        <textarea id="todo-{{this}}" placeholder="Things to do" type="text" class="form-control">{{calendarItems.body}} </textarea>
-        <button id="button-{{this}}" class="input-group-text" style="background-color: #DAE4CA;" type="submit">Save</button>
+      <form id="{{this.startHour}}" class="input-group mb-3">
+        <span id="startHour-{{this.startHour}}" class="input-group-text" style="background-color: #DAE4CA;">{{this.startHour}}00</span>
+        <textarea id="todo-{{this.startHour}}" placeholder="Things to do" type="text" class="form-control">{{this.body}} </textarea>
+        <button id="button-{{this.startHour}}" class="input-group-text" style="background-color: #DAE4CA;" type="submit">Save</button>
       </form>
     {{/each}}
    <div class="parallax"></div>
+
+
+
+    {{!-- {{#each hours}}
+      <form id="{{this}}" class="input-group mb-3">
+        <span id="startHour-{{this}}" class="input-group-text" style="background-color: #DAE4CA;">{{this}}</span>
+        <textarea id="todo-{{this}}" placeholder="Things to do" type="text" class="form-control"> </textarea>
+        <button id="button-{{this}}" class="input-group-text" style="background-color: #DAE4CA;" type="submit">Save</button>
+      </form>
+    {{/each}}
+   <div class="parallax"></div> --}}
 
 
 
