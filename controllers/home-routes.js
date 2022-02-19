@@ -2,12 +2,18 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, CalendarItem, Accomplishment, Goal } = require('../models');
 const dayjs = require('dayjs');
+// const { format, parse } = require('date-and-time');
+//uninstall this 
 
 router.get('/:date?', (req, res) => {
+  
+
   let date = req.params.date;
   if (!date) {
     date = dayjs();
   }
+ 
+
   CalendarItem.findAll({
     where: {
       user_id: req.session.user_id,
@@ -32,6 +38,8 @@ router.get('/:date?', (req, res) => {
       const homeData = [];
       const firstHour = 5;
       const lastHour = 21;
+      const activeDate = dayjs(date).format('dddd MMMM DD, YYYY');
+      console.log(activeDate);
       for (let i = firstHour; i <= lastHour; i++ ) {
         homeData.push({
           startHour: i,
@@ -45,6 +53,7 @@ router.get('/:date?', (req, res) => {
 
       res.render('homepage', {
         homeData,
+        activeDate,
         activeUser: req.session.username,
         loggedIn: req.session.loggedIn
       });

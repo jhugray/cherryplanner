@@ -4,10 +4,14 @@ console.log(now);
 const dateContainer = document.getElementById("currentDay");
 setDate(now);
 
-//update date on page
-function setDate(day) {
-  dateContainer.innerText = day.format('dddd, MMMM D, YYYY');
-  dateContainer.setAttribute("data-time", day.unix());
+// //update date on page
+// function setDate(day) {
+//   dateContainer.innerText = day.format('dddd, MMMM D, YYYY');
+//   dateContainer.setAttribute("data-time", day.unix());
+// };
+
+function dateURL(day) {
+  window.location.href="/" + (day.format('YYYY-MM-DD'));
 };
 
 //event listeners for forward and backward date buttons 
@@ -19,6 +23,7 @@ function dateForward() {
   date = dayjs.unix(dateContainer.getAttribute("data-time"));
   newDate = date.add(1, 'day');
   setDate(newDate);
+  dateURL(newDate);
 };
 
 function dateBackward() {
@@ -26,6 +31,7 @@ function dateBackward() {
   date = dayjs.unix(dateContainer.getAttribute("data-time"));
   newDate = date.subtract(1, 'day');
   setDate(newDate);
+  dateURL(newDate);
 }
 
 //save calendar items
