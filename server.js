@@ -27,15 +27,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 
-
-Handlebars.registerHelper('lookupOrDefault', function (object, propertyName, defaultValue, options) {
-  var result = options.lookupProperty(object, propertyName)
-  if (result != null) {
-      return result
-  }
-  return defaultValue
-})
-
+Handlebars.registerHelper('lessThan', (a, b) => { return a < b });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
