@@ -5,16 +5,11 @@ const dayjs = require('dayjs');
 
 router.get('/:date?', (req, res) => {
   let date = req.params.date;
-  console.log("this is before the if"+ date)
   if (!date) {
     date = dayjs();
-    console.log("this is inside the if"+ date)
   }
-  console.log("this is outside the if"+ date)
   CalendarItem.findAll({
-        //include where clause for current user and per date
     where: {
-      // use the ID from the session
       user_id: req.session.user_id,
       date
     },

@@ -24,7 +24,7 @@ function dateForward() {
 function dateBackward() {
   const dateContainer = document.getElementById("currentDay");
   date = dayjs.unix(dateContainer.getAttribute("data-time"));
-  newDate = date.add(1, 'day');
+  newDate = date.subtract(1, 'day');
   setDate(newDate);
 }
 
