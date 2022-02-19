@@ -2,10 +2,14 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, CalendarItem, Accomplishment, Goal } = require('../models');
 
+
 router.get('/', (req, res) => {
   CalendarItem.findAll({
         //include where clause for current user and per date
-
+    where: {
+      // use the ID from the session
+      user_id: req.session.user_id
+    },
     attributes: [
       'id', 
       'body', 

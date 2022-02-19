@@ -61,7 +61,8 @@ router.post('/', (req, res) => {
   CalendarItem.create({
     body: req.body.body,
     date: req.body.date,
-    startHour: req.body.startHour
+    startHour: req.body.startHour,
+    user_id: req.session.user_id
   })
     .then(dbCalendarItemData => res.json(dbCalendarItemData))
     .catch(err => {
