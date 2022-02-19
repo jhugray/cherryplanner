@@ -89,8 +89,9 @@ body {
   text-align: center;
   background: white;
   border-radius: 8px;
+  /* font-size: 0.84em; */
+  font-size: 18px;
 }
-
 
 .dayButton {
   background-color:#A30000;

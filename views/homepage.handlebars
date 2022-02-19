@@ -8,13 +8,13 @@
         <div class="container">
 
   <header class="row justify-content-center">
-    <button id="backward" class="dayButton" style="width: 4rem;">
-    <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem;"></i>  
-    </button>
-    <p id="currentDay" class="col-4 p-3 m-1">{{activeDate}}</p>
-    <button id="forward" class="dayButton" style="width: 4rem;">
-      <i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem;"></i>
-    </button>
+    <a href="/{{previousDate}}" id="backward" class="dayButton col-2" style="width: 4rem;">
+    <i class="bi bi-arrow-left-circle-fill" style="font-size: 2.5rem;"></i>  
+    </a>
+    <p id="currentDay" class="col-7 p-3 m-1">{{activeDate}}</p>
+    <a href="/{{nextDate}}" id="forward" class="dayButton col-2" style="width: 4rem;">
+      <i class="bi bi-arrow-right-circle-fill" style="font-size: 2.5rem;"></i>
+    </a>
   </header>
 
  <div class="parallax"></div>

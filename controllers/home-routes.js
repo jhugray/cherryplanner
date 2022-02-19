@@ -6,8 +6,6 @@ const dayjs = require('dayjs');
 //uninstall this 
 
 router.get('/:date?', (req, res) => {
-  
-
   let date = req.params.date;
   if (!date) {
     date = dayjs();
@@ -39,6 +37,8 @@ router.get('/:date?', (req, res) => {
       const firstHour = 5;
       const lastHour = 21;
       const activeDate = dayjs(date).format('dddd MMMM DD, YYYY');
+      const nextDate = dayjs(date).add(1, 'day').format('YYYY-MM-DD');
+      const previousDate = dayjs(date).subtract(1, 'day').format('YYYY-MM-DD');
       console.log(activeDate);
       for (let i = firstHour; i <= lastHour; i++ ) {
         homeData.push({
@@ -54,6 +54,8 @@ router.get('/:date?', (req, res) => {
       res.render('homepage', {
         homeData,
         activeDate,
+        nextDate,
+        previousDate,
         activeUser: req.session.username,
         loggedIn: req.session.loggedIn
       });

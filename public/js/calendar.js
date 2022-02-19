@@ -1,38 +1,38 @@
-//set the current date using day.js and set inner html to the date
-let now = dayjs();
-console.log(now);
-const dateContainer = document.getElementById("currentDay");
-setDate(now);
+// //set the current date using day.js and set inner html to the date
+// let now = dayjs();
+// console.log(now);
+// const dateContainer = document.getElementById("currentDay");
+// setDate(now);
 
-// //update date on page
-// function setDate(day) {
-//   dateContainer.innerText = day.format('dddd, MMMM D, YYYY');
-//   dateContainer.setAttribute("data-time", day.unix());
+// // //update date on page
+// // function setDate(day) {
+// //   dateContainer.innerText = day.format('dddd, MMMM D, YYYY');
+// //   dateContainer.setAttribute("data-time", day.unix());
+// // };
+
+// function dateURL(day) {
+//   window.location.href="/" + (day.format('YYYY-MM-DD'));
 // };
 
-function dateURL(day) {
-  window.location.href="/" + (day.format('YYYY-MM-DD'));
-};
+// //event listeners for forward and backward date buttons 
+// document.getElementById("forward").addEventListener("click", dateForward);
+// document.getElementById("backward").addEventListener("click", dateBackward);
 
-//event listeners for forward and backward date buttons 
-document.getElementById("forward").addEventListener("click", dateForward);
-document.getElementById("backward").addEventListener("click", dateBackward);
+// function dateForward() {
+//   const dateContainer = document.getElementById("currentDay");
+//   date = dayjs.unix(dateContainer.getAttribute("data-time"));
+//   newDate = date.add(1, 'day');
+//   setDate(newDate);
+//   dateURL(newDate);
+// };
 
-function dateForward() {
-  const dateContainer = document.getElementById("currentDay");
-  date = dayjs.unix(dateContainer.getAttribute("data-time"));
-  newDate = date.add(1, 'day');
-  setDate(newDate);
-  dateURL(newDate);
-};
-
-function dateBackward() {
-  const dateContainer = document.getElementById("currentDay");
-  date = dayjs.unix(dateContainer.getAttribute("data-time"));
-  newDate = date.subtract(1, 'day');
-  setDate(newDate);
-  dateURL(newDate);
-}
+// function dateBackward() {
+//   const dateContainer = document.getElementById("currentDay");
+//   date = dayjs.unix(dateContainer.getAttribute("data-time"));
+//   newDate = date.subtract(1, 'day');
+//   setDate(newDate);
+//   dateURL(newDate);
+// }
 
 //save calendar items
 async function saveTodoHandler(event) {
