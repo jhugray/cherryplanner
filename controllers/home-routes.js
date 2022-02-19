@@ -4,11 +4,13 @@ const { User, CalendarItem, Accomplishment, Goal } = require('../models');
 
 
 router.get('/', (req, res) => {
+  // const date = 
   CalendarItem.findAll({
         //include where clause for current user and per date
     where: {
       // use the ID from the session
-      user_id: req.session.user_id
+      user_id: req.session.user_id,
+      // date: date
     },
     attributes: [
       'id', 
@@ -39,13 +41,9 @@ router.get('/', (req, res) => {
           completedStatus: false
         })
       }
-      
-      // forEach on calendarItems ... replace homedata[starthour-firsthour]
-
       calendarItems.forEach(calendarItem => {
         homeData[calendarItem.startHour-firstHour] = calendarItem;
-      })
-
+      });
 
       res.render('homepage', {
         // calendarItems: calendarItems,
@@ -84,6 +82,5 @@ router.get('/logout', (req, res) => {
       res.status(404).end();
     }
 });
-
 
 module.exports = router;
