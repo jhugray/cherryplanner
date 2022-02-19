@@ -4,7 +4,7 @@ console.log(now);
 const dateContainer = document.getElementById("currentDay");
 setDate(now);
 
-//update date
+//update date on page
 function setDate(day) {
   dateContainer.innerText = day.format('dddd, MMMM D, YYYY');
   dateContainer.setAttribute("data-time", day.unix());

@@ -1,16 +1,22 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, CalendarItem, Accomplishment, Goal } = require('../models');
+const dayjs = require('dayjs');
 
-
-router.get('/', (req, res) => {
-  // const date = 
+router.get('/:date?', (req, res) => {
+  let date = req.params.date;
+  console.log("this is before the if"+ date)
+  if (!date) {
+    date = dayjs();
+    console.log("this is inside the if"+ date)
+  }
+  console.log("this is outside the if"+ date)
   CalendarItem.findAll({
         //include where clause for current user and per date
     where: {
       // use the ID from the session
       user_id: req.session.user_id,
-      // date: date
+      date
     },
     attributes: [
       'id', 
@@ -28,9 +34,6 @@ router.get('/', (req, res) => {
   })
     .then(dbCalendarData => {
       const calendarItems = dbCalendarData.map(calendarItems => calendarItems.get({ plain: true }));
-
-      //homeData object 
-      //...  Start with a for loop going through the hours, setting up an array, and instead of being a string of hours, it will be objects with keys from the calender model (for fallback when no db data) (body (empty), startHour (from index of forloop), completionStatus(false))
       const homeData = [];
       const firstHour = 5;
       const lastHour = 21;
@@ -46,9 +49,6 @@ router.get('/', (req, res) => {
       });
 
       res.render('homepage', {
-        // calendarItems: calendarItems,
-        // hours:["0500", "0600", "0700", "0800", "0900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100"],
-        // loggedIn: req.session.loggedIn,
         homeData,
         activeUser: req.session.username,
         loggedIn: req.session.loggedIn
