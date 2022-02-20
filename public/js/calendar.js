@@ -38,9 +38,9 @@
 async function saveTodoHandler(event) {
   event.preventDefault();
   const startHour = event.target.id;
-  const body = document.querySelector('#todo-' + event.target.id).value.trim();
-  const dateContainer = document.getElementById("currentDay");
-  const date = dayjs.unix(dateContainer.getAttribute("data-time")).format('YYYY-MM-DD');
+  const body = document.getElementById('todo-' + startHour).value.trim();
+  const dateContainer = document.getElementById('dateContainer-' + startHour);
+  const date = dateContainer.value;
   console.log(body);
   console.log(date);
   console.log(startHour);

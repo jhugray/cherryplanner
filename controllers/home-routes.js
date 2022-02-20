@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const { User, CalendarItem, Accomplishment, Goal } = require('../models');
 const dayjs = require('dayjs');
 
@@ -58,6 +57,7 @@ router.get('/:date?', (req, res) => {
       const homeData = [];
       const firstHour = 5;
       const lastHour = 21;
+      const saveDate = dayjs(date).format('YYYY-MM-DD');
       const activeDate = dayjs(date).format('dddd MMMM DD, YYYY');
       const nextDate = dayjs(date).add(1, 'day').format('YYYY-MM-DD');
       const previousDate = dayjs(date).subtract(1, 'day').format('YYYY-MM-DD');
@@ -66,7 +66,8 @@ router.get('/:date?', (req, res) => {
         homeData.push({
           startHour: i,
           body: '',
-          completedStatus: false
+          completedStatus: false,
+          saveDate
         })
       }
       calendarItems.forEach(calendarItem => {
@@ -87,7 +88,5 @@ router.get('/:date?', (req, res) => {
       res.status(500).json(err);
     });
 });
-
-
 
 module.exports = router;
