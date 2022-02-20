@@ -1,11 +1,7 @@
  .parallax {
   /* The image used */
-  /* background-image: url("https://images.unsplash.com/photo-1532381523761-96107c2f2e6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"); */
-  /* background-image: url("https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80"); */
-  /* background-image: url("https://images.unsplash.com/photo-1465120846441-761b22f43328?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"); */
   background-image: url("/assets/cherries.jpg");
 
-  /* background-image: url("https://images.unsplash.com/photo-1560772336-0a9953caf5b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"); */
   /* Set a specific height */
   min-height: 200px;
 
@@ -25,7 +21,6 @@
 }
 
 nav {
-  /* background-color: #EF5350; */
   background-color: #4C0202;
 }
 
