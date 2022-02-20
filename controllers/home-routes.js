@@ -2,19 +2,41 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, CalendarItem, Accomplishment, Goal } = require('../models');
 const dayjs = require('dayjs');
-// const { format, parse } = require('date-and-time');
-//uninstall this 
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+router.get('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.redirect('/');
+      });
+    }
+    else {
+      res.status(404).end();
+    }
+});
 
 router.get('/:date?', (req, res) => {
   let date = req.params.date;
   if (!date) {
     date = dayjs();
-  }
- 
+  };
+
+  let user = req.session.user_id || null;
 
   CalendarItem.findAll({
     where: {
-      user_id: req.session.user_id,
+      user_id: user,
       date
     },
     attributes: [
@@ -66,27 +88,6 @@ router.get('/:date?', (req, res) => {
     });
 });
 
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('login');
-});
 
-router.get('/signup', (req, res) => {
-  res.render('signup');
-});
-
-router.get('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.redirect('/');
-      });
-    }
-    else {
-      res.status(404).end();
-    }
-});
 
 module.exports = router;
