@@ -28,8 +28,6 @@ nav {
   background-color: #4C0202;
 }
 
-
-
 .card {
   padding: 20px;
   margin: 20px; 
@@ -100,7 +98,7 @@ body {
 }
 
 .footer {
-  background-color: #A30000;
+  background-color: hsl(0, 100%, 32%);
   color: white;
 }
 
