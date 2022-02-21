@@ -1,6 +1,6 @@
  .parallax {
   /* The image used */
-  background-image: url("/assets/cherries.jpg");
+  background-image: url("/assets/cherries.avif");
 
   /* Set a specific height */
   min-height: 200px;
@@ -13,7 +13,7 @@
 }
 
 .background {
- background-image: url("/assets/cherries.jpg");
+ background-image: url("/assets/cherries.avif");
  background-attachment: fixed;
  background-position:bottom;
  background-repeat: no-repeat;
