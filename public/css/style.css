@@ -38,14 +38,7 @@ li {
   background-color: #A30000;
 }
 
-/* signup login pages */
-/* html,
-body {
-  height: 100%;
-} */
-
 .sign-in-body {
-  /* display: flex; */
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -83,7 +76,6 @@ body {
   text-align: center;
   background: white;
   border-radius: 8px;
-  /* font-size: 0.84em; */
   font-size: 18px;
 }
 
