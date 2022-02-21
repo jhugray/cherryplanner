@@ -15,7 +15,7 @@ CalendarItem.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 500]
+        len: [0, 500]
       }
     },
     completionStatus: {

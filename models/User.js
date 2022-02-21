@@ -22,7 +22,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      match: [/.+@.+\..+/, 'Must be a valid email format']
     },
     username: {
       type: DataTypes.STRING,
@@ -39,7 +38,6 @@ User.init(
   },
   {
     hooks: {
-      // set up beforeCreate lifecycle "hook" functionality
       async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;

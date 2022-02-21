@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const express = require('express');
 const { User, CalendarItem, Accomplishment, Goal } = require('../../models');
 
 // get all calendar items
@@ -68,7 +69,12 @@ router.post('/', (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    });
+    })
+    .then(dbCalendarItemData => res.json(dbCalendarItemData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    }); 
 });
 
 router.put('/:id', (req, res) => {
