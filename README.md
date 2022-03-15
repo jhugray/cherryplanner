@@ -2,6 +2,8 @@
 
 A dayplanner app - currently a work in progress :)
 
+https://cherryplanner.herokuapp.com/
+
 
 <img width="811" alt="image" src="https://user-images.githubusercontent.com/59127869/156824506-998e0496-c32f-4b6a-8582-2e0f700a42f4.png">
 
