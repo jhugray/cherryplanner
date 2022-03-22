@@ -26,7 +26,6 @@ const hbs = exphbs.create();
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-
 Handlebars.registerHelper('lessThan', (a, b) => { return a < b });
 
 app.use(express.json());
