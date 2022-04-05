@@ -17,7 +17,7 @@
     
     {{#each homeData}}
       <form id="{{this.startHour}}" class="input-group mb-3">
-        <input type="hidden" id="dateContainer-{{this.startHour}}" name="dateContainer" value="{{saveDate}}">
+        <input type="hidden" id="dateContainer-{{this.startHour}}" name="dateContainer" value="{{date}}">
         <span id="startHour-{{this.startHour}}" class="input-group-text" style="background-color: #DAE4CA;">{{#if (lessThan this.startHour 10)}}0{{/if}}{{this.startHour}}00</span>
         <textarea id="todo-{{this.startHour}}" type="text" class="form-control">{{this.body}} </textarea>
         <button id="button-{{this.startHour}}" class="input-group-text" style="background-color: #DAE4CA;" type="submit">Save</button>

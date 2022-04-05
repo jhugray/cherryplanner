@@ -71,30 +71,43 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
-  // pass in req.body instead to only update what's passed through
-  CalendarItem.update(
-    {
-      body: req.body.body,
-      completionStatus: req.body.completionStatus
-    },
-    {
-      where: {
-        id: req.params.id
-      }
-    }
-  )
-    .then(dbCalendarItemData => {
-      if (!dbCalendarItemData) {
-        res.status(404).json({ message: 'No todo found with this id' });
-        return;
-      }
-      res.json(dbCalendarItemData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+
+
+router.put('/calendar/:id', function (req, res, next) {
+ CalendarItem.update(
+   {body: req.body.body},
+   {returning: true, where: {id: req.params.id} }
+ )
+ .then(function([ dbCalendarItemData, [updatedCalendarItem] ]) {
+   res.json(updatedCalendarItem)
+ })
+ .catch(next)
+})
+
+// router.put('/:id', (req, res) => {
+//   // pass in req.body instead to only update what's passed through
+//   CalendarItem.update(
+//     {
+//       body: req.body.body,
+//       completionStatus: req.body.completionStatus
+//     },
+//     {
+//       where: {
+//         id: req.params.id
+//       }
+//     }
+//   )
+//     .then(dbCalendarItemData => {
+//       if (!dbCalendarItemData) {
+//         res.status(404).json({ message: 'No todo found with this id' });
+//         return;
+//       }
+//       res.json(dbCalendarItemData);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 module.exports = router;

@@ -74,7 +74,7 @@ router.get('/:date?', (req, res) => {
           startHour: i,
           body: '',
           completedStatus: false,
-          saveDate
+          date: saveDate
         })
       }
       calendarItems.forEach(calendarItem => {
