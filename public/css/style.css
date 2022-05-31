@@ -1,4 +1,4 @@
- .parallax {
+ /* .parallax {
   /* The image used */
   background-image: url("/assets/cherries.avif");
 
@@ -10,8 +10,11 @@
   background-position:bottom;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
+.date-header {
+  padding: 75px;
+}
 .background {
  background-image: url("/assets/cherries.avif");
  background-attachment: fixed;

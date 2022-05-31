@@ -1,9 +1,9 @@
-<div class="parallax"></div>
+{{!-- <div class="parallax"></div> --}}
   
 <div class="background">
   <div class="container">
 
-    <header class="row justify-content-center">
+    <header class="row justify-content-center date-header">
       <a href="/{{previousDate}}" id="backward" class="dayButton col-2" style="width: 4rem;">
       <i class="bi bi-arrow-left-circle-fill" style="font-size: 2.5rem;"></i>  
       </a>
@@ -13,7 +13,7 @@
       </a>
     </header>
 
-    <div class="parallax"></div>
+    {{!-- <div class="parallax"></div> --}}
     
     {{#each homeData}}
       <form id="{{this.startHour}}" class="input-group mb-3">
