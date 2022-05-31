@@ -1,16 +1,16 @@
  /* .parallax {
   /* The image used */
-  background-image: url("/assets/cherries.avif");
+  /* background-image: url("/assets/cherries.avif"); */
 
   /* Set a specific height */
-  min-height: 200px;
+  /* min-height: 200px; */
 
   /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position:bottom;
+  /* background-attachment: fixed; */
+  /* background-position:bottom;
   background-repeat: no-repeat;
   background-size: cover;
-} */
+} */ */
 
 .date-header {
   padding: 75px;
