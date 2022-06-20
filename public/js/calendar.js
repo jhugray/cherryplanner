@@ -22,3 +22,7 @@ async function saveTodoHandler(event) {
 };
 
 document.querySelectorAll('.input-group').forEach(function(el) {el.addEventListener('submit', saveTodoHandler)});
+document.querySelectorAll('.input-group').forEach(function(el) {el.addEventListener('keyup', function(event) {
+  if (event.keyCode === 13) {
+    saveTodoHandler();
+}})});
