@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, CalendarItem, Accomplishment, Goal } = require('../../models');
+const { CalendarItem } = require('../../models');
 
 // get all calendar items
 router.get('/', (req, res) => {
@@ -11,12 +11,6 @@ router.get('/', (req, res) => {
       'date',
       'startHour'
     ],
-    // include: [
-    //   {
-    //     model: User,
-    //     attributes: ['username']
-    //   }
-    // ]
   })
     .then(dbCalendarItemData => res.json(dbCalendarItemData))
     .catch(err => {
@@ -36,13 +30,7 @@ router.get('/:id', (req, res) => {
       'completionStatus',
       'date',
       'startHour'
-    ],
-    // include: [
-    //   {
-    //     model: User,
-    //     attributes: ['username']
-    //   }
-    // ]
+    ]
   })
     .then(dbCalendarItemData => {
       if (!dbCalendarItemData) {
@@ -71,8 +59,6 @@ router.post('/', (req, res) => {
     });
 });
 
-
-
 router.put('/calendar/:id', function (req, res, next) {
  CalendarItem.update(
    {body: req.body.body},
@@ -83,31 +69,5 @@ router.put('/calendar/:id', function (req, res, next) {
  })
  .catch(next)
 })
-
-// router.put('/:id', (req, res) => {
-//   // pass in req.body instead to only update what's passed through
-//   CalendarItem.update(
-//     {
-//       body: req.body.body,
-//       completionStatus: req.body.completionStatus
-//     },
-//     {
-//       where: {
-//         id: req.params.id
-//       }
-//     }
-//   )
-//     .then(dbCalendarItemData => {
-//       if (!dbCalendarItemData) {
-//         res.status(404).json({ message: 'No todo found with this id' });
-//         return;
-//       }
-//       res.json(dbCalendarItemData);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
 
 module.exports = router;
