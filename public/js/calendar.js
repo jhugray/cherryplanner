@@ -1,6 +1,7 @@
 async function saveTodoHandler(event) {
   event.preventDefault();
-  const startHour = event.target.id;
+  const form = event.target.form || event.target;
+  const startHour = form.id;
   const body = document.getElementById('todo-' + startHour).value.trim();
   const dateContainer = document.getElementById('dateContainer-' + startHour);
   const date = dateContainer.value;
@@ -22,7 +23,11 @@ async function saveTodoHandler(event) {
 };
 
 document.querySelectorAll('.input-group').forEach(function(el) {el.addEventListener('submit', saveTodoHandler)});
-document.querySelectorAll('.input-group').forEach(function(el) {el.addEventListener('keyup', function(event) {
-  if (event.keyCode === 13) {
-    saveTodoHandler();
-}})});
+
+document.querySelectorAll('.form-control').forEach(function(input) {
+  input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      saveTodoHandler(event);
+    }
+  });
+});
