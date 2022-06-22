@@ -8,7 +8,7 @@ const goaldata = [
   },
   {
     body: 'watch youtube video on graphQL',
-    date: '2022-02-10',
+    date: '2022-06-23',
     user_id: '3'
   },
   {
