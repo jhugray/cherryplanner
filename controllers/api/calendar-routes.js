@@ -62,12 +62,12 @@ router.post('/', (req, res) => {
 router.put('/calendar/:id', function (req, res, next) {
  CalendarItem.update(
    {body: req.body.body},
-   {returning: true, where: {id: req.params.id} }
+   {returning: true, where: {id: req.params.id}}
  )
- .then(function([ dbCalendarItemData, [updatedCalendarItem] ]) {
+ .then(function([ dbCalendarItemData, [updatedCalendarItem]]) {
    res.json(updatedCalendarItem)
  })
  .catch(next)
-})
+});
 
 module.exports = router;
