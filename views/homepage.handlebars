@@ -3,14 +3,14 @@
 
     <header class="row justify-content-center date-header">
       <a href="/{{previousDate}}" id="backward" class="dayButton col-2" style="width: 4rem;">
-      <i class="bi bi-arrow-left-circle-fill" style="font-size: 2.5rem;"></i>  
+      <i class="bi bi-arrow-left-circle-fill" style="font-size: 2.5rem;" role="img" aria-label="back arrow"></i>  
       </a>
       <p id="currentDay" class="col-7 p-3 m-1">{{activeDate}}</p>
       <a href="/{{nextDate}}" id="forward" class="dayButton col-2" style="width: 4rem;">
-        <i class="bi bi-arrow-right-circle-fill" style="font-size: 2.5rem;"></i>
+        <i class="bi bi-arrow-right-circle-fill" style="font-size: 2.5rem;" role="img" aria-label="forward arrow"></i>
       </a>
     </header>
-
+{{!-- 
     <section>
      <ul>
       <li>
@@ -23,7 +23,7 @@
         Kind of like high priority to do's
       </li>
      </ul>
-    </section>
+    </section> --}}
     
     {{#each homeData}}
       <form id="{{this.startHour}}" class="input-group mb-3">

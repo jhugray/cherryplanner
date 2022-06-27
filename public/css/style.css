@@ -11,6 +11,7 @@
 
 nav {
   background-color: #4C0202;
+  position:absolute
 }
 
 .card {
@@ -71,6 +72,7 @@ li {
   background: white;
   border-radius: 8px;
   font-size: 18px;
+  color: black;
 }
 
 .dayButton {
@@ -80,10 +82,8 @@ li {
 }
 
 .footer {
-  background-color: hsl(0, 100%, 32%);
+  background-color: hsl(0, 95%, 29%);
   color: white;
-  position: sticky;
-  bottom: 0;
 }
 
 .footer a {
