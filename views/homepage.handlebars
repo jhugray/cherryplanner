@@ -5,7 +5,7 @@
       <a href="/{{previousDate}}" id="backward" class="dayButton col-2" style="width: 4rem;" aria-label="back arrow">
       <i class="bi bi-arrow-left-circle-fill" style="font-size: 2.5rem;" role="img"></i>  
       </a>
-      <p id="currentDay" class="col-7 p-3 m-1"><strong>{{activeDate}}</strong></p>
+      <p id="currentDay" tabindex="-1" class="col-7 p-3 m-1"><strong>{{activeDate}}</strong></p>
       <a href="/{{nextDate}}" id="forward" class="dayButton col-2" style="width: 4rem;" aria-label="forward arrow">
         <i class="bi bi-arrow-right-circle-fill" style="font-size: 2.5rem;" role="img"></i>
       </a>
@@ -24,17 +24,16 @@
       </li>
      </ul>
     </section> --}}
-    
-    {{#each homeData}}
-      <form id="{{this.startHour}}" class="input-group mb-3">
-        <input type="hidden" id="dateContainer-{{this.startHour}}" name="dateContainer" value="{{date}}">
-        <span id="startHour-{{this.startHour}}" class="input-group-text" style="background-color: #DAE4CA;">{{#if (lessThan this.startHour 10)}}0{{/if}}{{this.startHour}}00</span>
-        <textarea id="todo-{{this.startHour}}" type="text" class="form-control">{{this.body}} </textarea>
-        <button id="button-{{this.startHour}}" class="input-group-text btn" style="background-color: #DAE4CA;" type="submit">Save</button>
-      </form>
-    {{/each}}
-
-    <div class="parallax"></div>
+    <section id="planner" tabindex="-1">
+       {{#each homeData}}
+        <form id="{{this.startHour}}" class="input-group mb-3">
+          <input type="hidden" id="dateContainer-{{this.startHour}}" name="dateContainer" value="{{date}}">
+          <span id="startHour-{{this.startHour}}" class="input-group-text" style="background-color: #DAE4CA;">{{#if (lessThan this.startHour 10)}}0{{/if}}{{this.startHour}}00</span>
+          <textarea id="todo-{{this.startHour}}" type="text" class="form-control">{{this.body}} </textarea>
+          <button id="button-{{this.startHour}}" class="input-group-text btn" style="background-color: #DAE4CA;" type="submit">Save</button>
+        </form>
+      {{/each}}
+    </section>
   </div>
 </div>
 
