@@ -2,12 +2,12 @@
   <div class="container">
 
     <header class="row justify-content-center date-header">
-      <a href="/{{previousDate}}" id="backward" class="dayButton col-2" style="width: 4rem;">
-      <i class="bi bi-arrow-left-circle-fill" style="font-size: 2.5rem;" role="img" aria-label="back arrow"></i>  
+      <a href="/{{previousDate}}" id="backward" class="dayButton col-2" style="width: 4rem;" aria-label="back arrow">
+      <i class="bi bi-arrow-left-circle-fill" style="font-size: 2.5rem;" role="img"></i>  
       </a>
-      <p id="currentDay" class="col-7 p-3 m-1">{{activeDate}}</p>
-      <a href="/{{nextDate}}" id="forward" class="dayButton col-2" style="width: 4rem;">
-        <i class="bi bi-arrow-right-circle-fill" style="font-size: 2.5rem;" role="img" aria-label="forward arrow"></i>
+      <p id="currentDay" class="col-7 p-3 m-1"><strong>{{activeDate}}</strong></p>
+      <a href="/{{nextDate}}" id="forward" class="dayButton col-2" style="width: 4rem;" aria-label="forward arrow">
+        <i class="bi bi-arrow-right-circle-fill" style="font-size: 2.5rem;" role="img"></i>
       </a>
     </header>
 {{!-- 

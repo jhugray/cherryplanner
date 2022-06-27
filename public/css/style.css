@@ -84,8 +84,10 @@ li {
 .footer {
   background-color: hsl(0, 95%, 29%);
   color: white;
+  position: inherit;
 }
 
 .footer a {
   color: white;
+  
 }
