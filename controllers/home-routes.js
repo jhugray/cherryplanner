@@ -25,6 +25,34 @@ router.get('/logout', (req, res) => {
     }
 });
 
+router.get('/goals', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+  Goal.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: [
+      'id',
+      'body',
+      'date',
+      'completionStatus'
+    ]
+  })
+    .then(dbGoalData => {
+      res.render('goals', {
+        goals: dbGoalData
+      });
+    }
+    )
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.get('/:date?', (req, res) => {
   let date = req.params.date;
   //default to today's date
@@ -51,7 +79,7 @@ router.get('/:date?', (req, res) => {
     include: [
       {
         model: User,
-        attrubutes: ['id', 'username']
+        attributes: ['id', 'username']
       }
     ]
   })

@@ -11,10 +11,13 @@
       </a>
     </header>
 
-    <section class="goals">
+    <section class="goals" tabindex="-1">
       <h2 id="goals">Goals</h2>
+      {{#each goals}}
+
      <ul>
-      <li>
+      <li>{{this.body}}</li>
+      {{!-- <li>
         Hi
       </li>
       <li>
@@ -22,9 +25,11 @@
       </li>
       <li>
         Kind of like high priority to do's
-      </li>
+      </li> --}}
      </ul>
+     {{/each}}
     </section>
+
     <section id="planner" tabindex="-1">
        {{#each homeData}}
         <form id="{{this.startHour}}" class="input-group mb-3">
