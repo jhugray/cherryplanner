@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
       'completionStatus'
     ]
   })
-    .then(dbGoalData => res.json(dbGoalData))
+  //return the goals
+    .then(dbGoalData => res.json(dbGoalData)) 
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -30,10 +31,12 @@ router.get('/:id', (req, res) => {
     ]
   })
     .then(dbGoalData => {
+      //if no goal w/that ID, return an error
       if (!dbGoalData) {
         res.status(404).json({message: 'No goal found with this id'});
         return;
       }
+      //return requested goal
       res.json(dbGoalData);
     })
     .catch(err => {
@@ -49,28 +52,33 @@ router.post('/', (req, res) => {
     user_id: req.session.user_id,
     completionStatus: req.body.completionStatus
   })
-    .then(dbGoalData => res.json(dbGoalData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  .then(dbGoalData => res.json(dbGoalData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
-//fix put route
-router.put('/goals/:id', function(req, res, next) {
+router.put('/:id', function(req, res) {
   Goal.update(
-    {
-      body: req.body.body
-    },
-    {
-      returning: true, 
-      where: {id: req.params.id}
-    }
+    //what to update
+    {body: req.body.body, completionStatus: req.body.completionStatus}, //what to update
+    {where: {id: req.params.id}}
   )
-  .then(function([dbGoalData, [updatedGoal]]) {
-    res.json(updatedGoal)
-  })
-  .catch(next)
+    .then(dbGoalData => { 
+      //if no goal w/that ID, return an error
+      if (!dbGoalData) { 
+        res.status(404).json({message: 'No goal found with this id'});
+        return;
+      }
+      //return the updated goal
+      res.json(dbGoalData); 
+    })
+    .catch(err => { 
+      console.log(err);
+      res.status(500).json(err);
+    }
+  );
 });
 
 module.exports = router;

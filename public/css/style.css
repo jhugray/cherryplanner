@@ -118,3 +118,11 @@ li {
 	outline: none;
 }
 
+.goals {
+  background: white;
+  border-radius: 8px;
+  font-size: 18px;
+  padding: 10px;
+  margin: 10px;
+  color: black;
+}
